@@ -1,4 +1,5 @@
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addWatchTarget('./src/scss/')
   return {
     // configuration object for directories
     dir: {

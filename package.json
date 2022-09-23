@@ -4,15 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "npx prettier --write .",
-    "start": "eleventy --serve",
-    "build": "eleventy"
+    "start": "run-p eleventy:dev sass:dev",
+    "build": "run-s eleventy:build sass:build",
+    "sass:dev": "sass --watch --embed-source-map src/styles:dist",
+    "sass:build": "sass --no-source-map --style=compressed src/styles:dist",
+    "eleventy:dev": "eleventy --serve",
+    "eleventy:build": "eleventy",
+    "format": "npx prettier --write ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "sass": "^1.55.0"
   }
 }
