@@ -1,4 +1,4 @@
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   return {
     // configuration object for directories
     dir: {
@@ -9,5 +9,5 @@ module.exports = function(eleventyConfig) {
       // tells Eleventy where to look for layouts/partials
       includes: '../partials',
     },
-  };
-};
+  }
+}
