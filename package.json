@@ -6,8 +6,8 @@
   "scripts": {
     "start": "run-p eleventy:dev sass:dev js:dev",
     "build": "run-s eleventy:build sass:build js:build",
-    "sass:dev": "node-sass --watch --embed-source-map src/styles:dist",
-    "sass:build": "node-sass --no-source-map --style=compressed src/styles:dist",
+    "sass:dev": "sass --watch --embed-source-map src/styles:dist",
+    "sass:build": "sass --no-source-map --style=compressed src/styles:dist",
     "eleventy:dev": "eleventy --serve",
     "eleventy:build": "eleventy",
     "js:dev": "esbuild src/js/*.js --format=esm --bundle=true --splitting=true --outdir=dist --watch --sourcemap=inline",
@@ -30,9 +30,10 @@
     "jest": "^29.0.3",
     "jest-environment-jsdom": "^29.0.3",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "pug": "^3.0.2"
   },
   "dependencies": {
-    "node-sass": "^7.0.3"
+    "sass": "^1.55.0"
   }
 }
