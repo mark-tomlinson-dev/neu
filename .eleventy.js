@@ -1,4 +1,21 @@
 const pug = require('pug')
+const {
+  pluginPrismic,
+  definePrismicPluginOptions,
+} = require('eleventy-plugin-prismic')
+
+// This is a sugar function that gives you intellisense and
+// documentation in your IDE while defining plugin options.
+const prismicPluginOptions = definePrismicPluginOptions({
+  endpoint: 'your-repo-name',
+
+  // Optional, additional parameters to pass to the client
+  clientConfig: {
+    accessToken: 'abc',
+  },
+
+  /* see configuration references for more */
+})
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./src/styles/')
@@ -6,6 +23,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.htmlTemplateEngine = 'pug'
   eleventyConfig.setLibrary('pug', pug)
   eleventyConfig.setTemplateFormats(['pug', 'md'])
+  eleventyConfig.addPlugin(pluginPrismic, prismicPluginOptions)
+  // TODO: check this is right
+  eleventyConfig.prismicPluginOptions = prismicPluginOptions
 
   return {
     // configuration object for directories
